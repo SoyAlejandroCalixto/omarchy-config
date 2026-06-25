@@ -22,8 +22,8 @@ Estoy en Omarchy y quiero que me hagas las siguiente tareas:
 - Añade el mpris al waybar especificamente a la derecha del tray-expander y ajusta esto:
 > - Que al scrollearlo arriba/abajo con el raton cambies de cancion
 > - Que al hacer click pauses/continues la cancion
-> - Que solo tenga en cuenta el player "chromium" y ningun otro mas
-> - Que solo muestre el nombre de la cancion sin el artista ni nada, y el icono "󰎇" a la derecha
+> - Que solo tenga en cuenta el player 'chromium' y ningun otro mas
+> - Que solo muestre el nombre de la cancion sin el artista ni nada, y el icono '󰎇' a la izquierda
 > - Que tenga un max-length de 25, y en el css tan solo 12 pixeles de margin-right
 - Establece en la configuración los monitores monitor=HDMI-A-1,1920x1080@75,0x0,1 y monitor=DP-2,1920x1080@60,1920x0,1
 "
