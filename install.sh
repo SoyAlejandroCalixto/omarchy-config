@@ -13,7 +13,20 @@ sudo pacman -S --needed --noconfirm base-devel discord bitwarden zsh github-cli 
 
 chsh -s /bin/zsh
 
-echo -e "\e[32m¡Hecho! Ahora para las configuraciones dinamicas que se pueden romper con las actualizaciones pegale este prompt a un agente:\e[0m"
+cat << EOF >> $HOME/.config/hypr/hyprland.conf
+
+# Agente - ghostty flotante con opencode
+windowrule = float on, match:class ^(org.omarchy.opencode)$
+windowrule = center on, match:class ^(org.omarchy.opencode)$
+windowrule = size 900 720, match:class ^(org.omarchy.opencode)$
+EOF
+
+cat << EOF >> $HOME/.config/hypr/bindings.conf
+
+bindd = SUPER, F9, Pajandroide Float, exec, xdg-terminal-exec --app-id=org.omarchy.opencode -e opencode
+EOF
+
+echo -e "\e[32m\n¡Hecho! Ahora para las configuraciones dinamicas que se pueden romper con las actualizaciones pegale este prompt a un agente:\e[0m"
 
 echo "
 Estoy en Omarchy y quiero que me hagas las siguiente tareas:
@@ -25,5 +38,7 @@ Estoy en Omarchy y quiero que me hagas las siguiente tareas:
 > - Que solo tenga en cuenta el player 'chromium' y ningun otro mas
 > - Que solo muestre el nombre de la cancion sin el artista ni nada, y el icono '󰎇' a la izquierda
 > - Que tenga un max-length de 25, y en el css tan solo 12 pixeles de margin-right
-- Establece en la configuración los monitores monitor=HDMI-A-1,1920x1080@75,0x0,1 y monitor=DP-2,1920x1080@60,1920x0,1
+- Establece en la configuración los monitores: monitor=HDMI-A-1,1920x1080@75,0x0,1 y monitor=DP-2,1920x1080@60,1920x0,1
 "
+
+echo -e "\e[32m\n¡No te olvides de setupear todo con Ctrl+Alt+Space!\n\e[0m"
