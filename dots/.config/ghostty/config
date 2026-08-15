@@ -1,4 +1,4 @@
-config-file = "~/.config/omarchy/current/theme/ghostty.conf"
+config-file = "~/.local/state/omarchy/current/theme/ghostty.conf"
 
 theme = TokyoNight
 font-family = CaskaydiaCove Nerd Font
