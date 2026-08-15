@@ -41,4 +41,4 @@ Estoy en Omarchy y quiero que me hagas las siguiente tareas:
 - Establece en la configuración los monitores: monitor=HDMI-A-1,1920x1080@75,0x0,1 y monitor=DP-2,1920x1080@60,1920x0,1
 "
 
-echo -e "\e[32m\n¡No te olvides de setupear todo con Ctrl+Alt+Space!\n\e[0m"
+echo -e "\e[32m\n¡No te olvides de setupear todo con Win+Space!\n\e[0m"
