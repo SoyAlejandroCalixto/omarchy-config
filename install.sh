@@ -1,10 +1,5 @@
 #!/bin/bash
 
-if [ "$(basename "$PWD")" != "omarchy-config" ]; then
-    echo "Error: Este script debe ejecutarse desde la carpeta omarchy-config."
-    exit 1
-fi
-
 cp -r dots/. ~/
 
 omarchy-webapp-remove Discord
@@ -13,32 +8,23 @@ sudo pacman -S --needed --noconfirm base-devel discord bitwarden zsh github-cli 
 
 chsh -s /bin/zsh
 
-cat << EOF >> $HOME/.config/hypr/hyprland.conf
-
-# Agente - ghostty flotante con opencode
-windowrule = float on, match:class ^(org.omarchy.opencode)$
-windowrule = center on, match:class ^(org.omarchy.opencode)$
-windowrule = size 900 720, match:class ^(org.omarchy.opencode)$
-EOF
-
-cat << EOF >> $HOME/.config/hypr/bindings.conf
-
-bindd = SUPER, F9, Pajandroide Float, exec, xdg-terminal-exec --app-id=org.omarchy.opencode -e opencode
-EOF
-
 echo -e "\e[32m\n¡Hecho! Ahora para las configuraciones dinamicas que se pueden romper con las actualizaciones pegale este prompt a un agente:\e[0m"
 
-echo "
+echo '
 Estoy en Omarchy y quiero que me hagas las siguiente tareas:
+- Quita la aceleración del ratón
+- Establece esta posición de monitores: HDMI-A-1 en 0x0, y DP-2 en 1920x0, el resto de cosas por defecto
 - Quita el compose:caps en la configuracion de hyprland
-- Quita en la configuracion de Hyprland la transparencia de las ventanas focus, que sean totalmente opacas
-- Añade el mpris al waybar especificamente a la derecha del tray-expander y ajusta esto:
-> - Que al scrollearlo arriba/abajo con el raton cambies de cancion
-> - Que al hacer click pauses/continues la cancion
-> - Que solo tenga en cuenta el player 'chromium' y ningun otro mas
-> - Que solo muestre el nombre de la cancion sin el artista ni nada, y el icono '󰎇' a la izquierda
-> - Que tenga un max-length de 25, y en el css tan solo 12 pixeles de margin-right
-- Establece en la configuración los monitores: monitor=HDMI-A-1,1920x1080@75,0x0,1 y monitor=DP-2,1920x1080@60,1920x0,1
-"
+- Quita la transparencia de las ventanas focus, que sean totalmente opacas
+- Que las ventanas transparentes tengan el fondo blureado
+- Crea un bind para una ventana de agente flotante:
+> - Añade un bind SUPER+F9 que ejecute "xdg-terminal-exec --app-id=org.omarchy.opencode -e opencode"
+> - Haz en la configuración que ese ID se abra siempre flotante, centrado y con fijo 900x720 píxeles
+- Crea un módulo QML en ~/.config/omarchy/bar/modules/ y regístralo en el shell.json a la izquierda de omarchy.tray:
+> - El widget debe usar MPRIS para mostrar solo el player "chromium"
+> - Con el icono 󰎇 a la izquierda del nombre de la canción (sin artista)
+> - 25 carácteres máximos y 12 píxeles de margen a la derecha
+> - Scroll arriba/abajo para cambiar de canción y click para pausar/reanudar
+'
 
 echo -e "\e[32m\n¡No te olvides de setupear todo con Win+Space!\n\e[0m"
