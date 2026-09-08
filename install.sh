@@ -4,7 +4,7 @@ cp -r dots/. ~/
 
 omarchy-webapp-remove Discord
 
-sudo pacman -S --needed --noconfirm base-devel discord bitwarden zsh github-cli mise starship yazi zoxide atuin zsh-autosuggestions zsh-syntax-highlighting lsd bat fzf
+sudo pacman -S --needed --noconfirm base-devel discord bitwarden zsh github-cli starship yazi zoxide atuin zsh-autosuggestions zsh-syntax-highlighting lsd bat fzf
 
 chsh -s /bin/zsh
 
